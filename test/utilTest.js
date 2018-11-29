@@ -3,7 +3,7 @@ const { generateCartesianSquare,
   generateCartesianProduct,
   justifyLength,
   isNotOrigin, 
-  add} = require("../src/util.js");
+  addPositions} = require("../src/util.js");
 
 
 describe(" Test generateCartesianProduct",function() {
@@ -22,19 +22,18 @@ describe(" Test generateCartesianSquare",function() {
   });
 });
 
-describe(" Test add",function() {
-  it("should return array of addition of respective elements of two given arrays",function() {
-    deepEqual(add([1,4],[2,3]),[3,7]);
-    deepEqual(add([-2,1],[2,3]),[0,4]);
-    deepEqual(add([-1,1],[3,4]),[2,5]);
+describe(" Test addPositions",function() {
+  it("should return array of addPositionsition of respective elements of two given arrays",function() {
+    deepEqual(addPositions([1,4],[2,3]),[3,7]);
+    deepEqual(addPositions([-2,1],[2,3]),[0,4]);
+    deepEqual(addPositions([-1,1],[3,4]),[2,5]);
   });
 });
 
 describe(" Test isNotOrigin",function() {
   it("should return array not including [0,0] ",function() {
-    deepEqual(add([1,4],[2,3]),[3,7]);
-    deepEqual(add([-2,1],[2,3]),[0,4]);
-    deepEqual(add([-1,1],[3,4]),[2,5]);
+    deepEqual(isNotOrigin([0,0]),false);
+    deepEqual(isNotOrigin([-2,1]),true);
   });
 });
 

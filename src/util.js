@@ -1,7 +1,7 @@
-const generateCartesianProduct = function(set1,set2){
+const generateCartesianProduct = function(position1,position2){
   let cartesianProduct = [];
-  set1.forEach((element1) => {
-    set2.forEach((element2) => {
+  position1.forEach((element1) => {
+    position2.forEach((element2) => {
       cartesianProduct.push([ element1 , element2]);
     });
   });
@@ -12,8 +12,12 @@ const generateCartesianSquare = function(set){
   return generateCartesianProduct(set,set);
 }
 
-const add = function(set1,set2){
-  return [set1[0]+set2[0],set1[1]+set2[1]];
+const addPositions = function(position1,position2){
+  return [position1[0]+position2[0],position1[1]+position2[1]];
+}
+
+const substractPositions = function(position1,position2){
+  return [position1[0]-position2[0],position1[1]-position2[1]];
 }
 
 const isNotOrigin = function(position) {
@@ -28,6 +32,7 @@ const justifyLength = function(text, width) {
 
 module.exports = {generateCartesianSquare,
   generateCartesianProduct,
-  add,
+  addPositions,
+  substractPositions,
   justifyLength,
   isNotOrigin };

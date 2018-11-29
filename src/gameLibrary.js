@@ -1,8 +1,9 @@
 const { generateCartesianSquare, 
   generateCartesianProduct,
   justifyLength,
+  substractPositions,
   isNotOrigin, 
-  add} = require("./util.js");
+  addPositions} = require("./util.js");
 
 const findAliveposition = function(worldDetails){
   let count = 0;
@@ -54,7 +55,7 @@ const generateRow = function(world){
 
 const findNeighboursPositions = function(currPosition){
   return generateCartesianSquare([-1,0,1]).
-    filter(isNotOrigin).map(delta => add(delta,currPosition));
+    filter(isNotOrigin).map(delta => addPositions(delta,currPosition));
 }
 
 const isValidPosition = function(world,currPosition){
@@ -72,6 +73,11 @@ const findNeighbours = function(world,currPosition){
 
 const countAliveNeighbours = function(list,position){
   return findNeighbours(list,position).filter( x => x == 1).length;
+}
+
+const extractValidPosition = function(alivePosition,topLeft,operator){
+  let operations = {"+" : addPositions,"-" : substractPositions};
+  return alivePosition = alivePosition.map( dimensions => operations[operator](dimensions,topLeft));
 }
 
 const decideState = function(length,cell){
@@ -101,5 +107,6 @@ module.exports = { makeGrid ,
   isValidPosition,
   countAliveNeighbours,
   generateNextWorld,
+  extractValidPosition,
   generateRow};
 
