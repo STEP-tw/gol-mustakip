@@ -7,9 +7,11 @@ const { generateCartesianSquare,
 const findAliveposition = function(worldDetails){
   let count = 0;
   let alivePosition = [];
-  let set1 = new Array(worldDetails.dimensions[0]).fill(1).map(element => count++);
+  let height = worldDetails.dimensions[0];
+  let width = worldDetails.dimensions[1];
+  let set1 = new Array(height).fill(1).map(element => count++);
   count = 0;
-  let set2 = new Array(worldDetails.dimensions[1]).fill(1).map(element => count++);
+  let set2 = new Array(width).fill(1).map(element => count++);
   set1.forEach((row) => {
     set2.forEach((column) => {
       worldDetails.world[row][column] == 1 && alivePosition.push([row,column]);
@@ -100,6 +102,4 @@ module.exports = { makeGrid ,
   countAliveNeighbours,
   generateNextWorld,
   generateRow};
-
-
 
