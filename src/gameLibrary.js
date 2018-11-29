@@ -21,7 +21,7 @@ const findAliveposition = function(worldDetails){
 }
 
 const updateWorld = function(world,currGeneration) {
-  currGeneration.map(position => world[position[0]][position[1]] = "1");
+  currGeneration.map(position => {(isValidPosition(world,position)) && (world[position[0]][position[1]] = 1)});
   return world;
 }
 
@@ -60,7 +60,7 @@ const findNeighboursPositions = function(currPosition){
 const isValidPosition = function(world,currPosition){
   let row = currPosition[0];
   let column = currPosition[1];
-  return (world[row] != undefined && world[column] != undefined)
+  return (world[row] != undefined && world[row][column] != undefined)
 }
 
 const findNeighbours = function(world,currPosition){ 
