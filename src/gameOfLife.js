@@ -1,4 +1,4 @@
-const {makeNoList ,
+const {makeWorld ,
   findNeighboursPositions,
   findAliveposition,
   extractSize,
@@ -7,7 +7,7 @@ const {makeNoList ,
 
 const nextGeneration = function(currGeneration,bounds) {
   let dimensions = extractSize(bounds);
-  let world = makeNoList(dimensions);
+  let world = makeWorld(dimensions);
   world = updateWorld(world,currGeneration);
   let worldDetails = {world,dimensions};
   worldDetails.world = generateNextWorld(worldDetails);

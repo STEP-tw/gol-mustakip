@@ -31,7 +31,7 @@ const extractSize = function(bounds) {
   return [height,width];
 }
 
-const makeNoList = function(dimensions){
+const makeWorld = function(dimensions){
   let height = dimensions[0];
   let width = dimensions[1];
   let world  = new Array(height).fill("1");
@@ -48,8 +48,8 @@ const makeGrid = function(world){
 }
 
 const generateRow = function(world){
-  list =  list.map( x => justifyLength(x,3)+"|");
-  return "|"+list.join("");
+  world =  world.map( x => justifyLength(x,3)+"|");
+  return "|"+world.join("");
 }
 
 const findNeighboursPositions = function(currPosition){
@@ -80,7 +80,7 @@ const decideState = function(length,cell){
 }
 
 const generateNextWorld = function(worldDetails) {
-  let nextWorld = makeNoList(worldDetails.dimensions);
+  let nextWorld = makeWorld(worldDetails.dimensions);
   for(let row = 0; row < worldDetails.dimensions[0]; row++) {
     for(let column = 0; column < worldDetails.dimensions[1]; column++) {
       let cell = worldDetails.world[row][column];
@@ -91,7 +91,7 @@ const generateNextWorld = function(worldDetails) {
   return nextWorld; }
 
 module.exports = { makeGrid ,
-  makeNoList ,
+  makeWorld ,
   findNeighbours,
   findAliveposition,
   decideState,
