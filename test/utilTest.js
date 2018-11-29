@@ -9,7 +9,7 @@ const { generateCartesianSquare,
 describe(" Test generateCartesianProduct",function() {
   it("should return array of cartesian product of two given sets",function() {
     deepEqual(generateCartesianProduct([1],[0]),[[1,0]]);
-    deepEqual(generateCartesianProduct([-1],[5]),[[-1,5]]);
+    deepEqual(generateCartesianProduct([],[]),[]);
     deepEqual(generateCartesianProduct([-1,1],[2,0]),[[-1,2],[-1,0],[1,2],[1,0]]);
   });
 });

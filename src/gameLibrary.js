@@ -26,8 +26,8 @@ const updateWorld = function(world,currGeneration) {
 }
 
 const extractSize = function(bounds) {
-  let height =  bounds.bottomRight[0] - bounds.topLeft[0];
-  let width = bounds.bottomRight[1] - bounds.topLeft[1];
+  let height =  bounds.bottomRight[0] - bounds.topLeft[0] + 1 ;
+  let width = bounds.bottomRight[1] - bounds.topLeft[1] + 1;
   return [height,width];
 }
 
