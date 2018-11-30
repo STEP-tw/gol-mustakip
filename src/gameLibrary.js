@@ -5,17 +5,17 @@ const { cartesianSquare,
   isNotOrigin, 
   addPositions} = require("./util.js");
 
-const findAliveposition = function(worldDetails){
+const findAliveposition = function({ world,dimensions}){
   let count = 0;
   let alivePosition = [];
-  let height = worldDetails.dimensions[0];
-  let width = worldDetails.dimensions[1];
+  let height = dimensions[0];
+  let width = dimensions[1];
   let set1 = new Array(height).fill(1).map(element => count++);
   count = 0;
   let set2 = new Array(width).fill(1).map(element => count++);
   set1.forEach((row) => {
     set2.forEach((column) => {
-      worldDetails.world[row][column] == 1 && alivePosition.push([row,column]);
+      world[row][column] == 1 && alivePosition.push([row,column]);
     });
   });
   return alivePosition;
@@ -26,9 +26,9 @@ const updateWorld = function(world,currGeneration) {
   return world;
 }
 
-const extractSize = function(bounds) {
-  let height =  bounds.bottomRight[0] - bounds.topLeft[0] + 1 ;
-  let width = bounds.bottomRight[1] - bounds.topLeft[1] + 1;
+const extractSize = function({bottomRight, topLeft}) {
+  let height =  bottomRight[0] - topLeft[0] + 1 ;
+  let width = bottomRight[1] - topLeft[1] + 1;
   return [height,width];
 }
 
@@ -85,12 +85,12 @@ const decideState = function(length,cell){
   return rules[length];
 }
 
-const generateNextWorld = function(worldDetails) {
-  let nextWorld = makeWorld(worldDetails.dimensions);
-  for(let row = 0; row < worldDetails.dimensions[0]; row++) {
-    for(let column = 0; column < worldDetails.dimensions[1]; column++) {
-      let cell = worldDetails.world[row][column];
-      let aliveNeighboursCount = countAliveNeighbours(worldDetails.world,[row,column]);
+const generateNextWorld = function({dimensions,world}) {
+  let nextWorld = makeWorld(dimensions);
+  for(let row = 0; row < dimensions[0]; row++) {
+    for(let column = 0; column < dimensions[1]; column++) {
+      let cell = world[row][column];
+      let aliveNeighboursCount = countAliveNeighbours(world,[row,column]);
       nextWorld[row][column] = decideState(aliveNeighboursCount,cell);
     }
   }
