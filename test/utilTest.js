@@ -2,6 +2,7 @@ const deepEqual = require("assert").deepEqual;
 const { cartesianSquare, 
   cartesianProduct,
   justifyLength,
+  substractPositions,
   isNotOrigin, 
   repeatSymbol,
   addPositions} = require("../src/util.js");
@@ -18,16 +19,22 @@ describe(" Test cartesianProduct",function() {
 describe(" Test cartesianSquare",function() {
   it("should return array of cartesian product of a given set",function() {
     deepEqual(cartesianSquare([1]),[[1,1]]);
-    deepEqual(cartesianSquare([-2]),[[-2,-2]]);
+    deepEqual(cartesianSquare([]),[]);
     deepEqual(cartesianSquare([-1,1]),[[-1,-1],[-1,1],[1,-1],[1,1]]);
   });
 });
 
 describe(" Test addPositions",function() {
-  it("should return array of addPositionsition of respective elements of two given arrays",function() {
+  it("should return array of added position of respective elements of two given arrays",function() {
     deepEqual(addPositions([1,4],[2,3]),[3,7]);
     deepEqual(addPositions([-2,1],[2,3]),[0,4]);
-    deepEqual(addPositions([-1,1],[3,4]),[2,5]);
+  });
+});
+
+describe(" Test subtractPositions",function() {
+  it("should return array of subtracted position of respective elements of two given arrays",function() {
+    deepEqual(substractPositions([1,4],[2,3]),[-1,1]);
+    deepEqual(substractPositions([-2,1],[2,3]),[-4,-2]);
   });
 });
 
