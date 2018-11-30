@@ -6,7 +6,7 @@ const isSame = (actualList,expectedList) => actualList.every(contains.bind(null,
 const isSameArity = (actualList,expectedList) => actualList.length == expectedList.length;
 
 describe("Test for nextGeneration Function " ,function(){
-  describe('nextGeneration',() => {
+  describe('  Test nextGeneration',() => {
     it('should generate an empty generation for a current generation that contains only one live cell',() => {
       let currentGeneration = [[0,1]];
       let bounds = {topLeft: [0,0], bottomRight: [3,3]};
