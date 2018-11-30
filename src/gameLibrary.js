@@ -1,5 +1,5 @@
-const { generateCartesianSquare, 
-  generateCartesianProduct,
+const { cartesianSquare, 
+  cartesianProduct,
   justifyLength,
   substractPositions,
   isNotOrigin, 
@@ -54,7 +54,7 @@ const generateRow = function(world){
 }
 
 const findNeighboursPositions = function(currPosition){
-  return generateCartesianSquare([-1,0,1]).
+  return cartesianSquare([-1,0,1]).
     filter(isNotOrigin).map(delta => addPositions(delta,currPosition));
 }
 

@@ -1,24 +1,24 @@
 const deepEqual = require("assert").deepEqual;
-const { generateCartesianSquare, 
-  generateCartesianProduct,
+const { cartesianSquare, 
+  cartesianProduct,
   justifyLength,
   isNotOrigin, 
   addPositions} = require("../src/util.js");
 
 
-describe(" Test generateCartesianProduct",function() {
+describe(" Test cartesianProduct",function() {
   it("should return array of cartesian product of two given sets",function() {
-    deepEqual(generateCartesianProduct([1],[0]),[[1,0]]);
-    deepEqual(generateCartesianProduct([],[]),[]);
-    deepEqual(generateCartesianProduct([-1,1],[2,0]),[[-1,2],[-1,0],[1,2],[1,0]]);
+    deepEqual(cartesianProduct([1],[0]),[[1,0]]);
+    deepEqual(cartesianProduct([],[]),[]);
+    deepEqual(cartesianProduct([-1,1],[2,0]),[[-1,2],[-1,0],[1,2],[1,0]]);
   });
 });
 
-describe(" Test generateCartesianSquare",function() {
+describe(" Test cartesianSquare",function() {
   it("should return array of cartesian product of a given set",function() {
-    deepEqual(generateCartesianSquare([1]),[[1,1]]);
-    deepEqual(generateCartesianSquare([-2]),[[-2,-2]]);
-    deepEqual(generateCartesianSquare([-1,1]),[[-1,-1],[-1,1],[1,-1],[1,1]]);
+    deepEqual(cartesianSquare([1]),[[1,1]]);
+    deepEqual(cartesianSquare([-2]),[[-2,-2]]);
+    deepEqual(cartesianSquare([-1,1]),[[-1,-1],[-1,1],[1,-1],[1,1]]);
   });
 });
 

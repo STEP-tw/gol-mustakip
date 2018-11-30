@@ -1,15 +1,15 @@
-const generateCartesianProduct = function(position1,position2){
+const cartesianProduct = function(set1,set2){
   let cartesianProduct = [];
-  position1.forEach((element1) => {
-    position2.forEach((element2) => {
+  set1.forEach((element1) => {
+    set2.forEach((element2) => {
       cartesianProduct.push([ element1 , element2]);
     });
   });
   return cartesianProduct;
 }
 
-const generateCartesianSquare = function(set){
-  return generateCartesianProduct(set,set);
+const cartesianSquare = function(set){
+  return cartesianProduct(set,set);
 }
 
 const addPositions = function(position1,position2){
@@ -30,8 +30,8 @@ const justifyLength = function(text, width) {
 
 }
 
-module.exports = {generateCartesianSquare,
-  generateCartesianProduct,
+module.exports = {cartesianSquare,
+  cartesianProduct,
   addPositions,
   substractPositions,
   justifyLength,
