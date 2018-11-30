@@ -42,7 +42,7 @@ const makeWorld = function(dimensions){
 
 const makeGrid = function(world){
   let gridArray = [];
-  for(index = 0; index < world.length ; index++){
+  for(let index = 0; index < world.length ; index++){
     gridArray[index] = generateRow(world[index]);
   }
   return gridArray.join("\n") ;
