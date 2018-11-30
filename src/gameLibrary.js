@@ -1,7 +1,7 @@
 const { cartesianSquare, 
   cartesianProduct,
   justifyLength,
-  substractPositions,
+  subtractPositions,
   isNotOrigin, 
   addPositions} = require("./util.js");
 
@@ -76,7 +76,7 @@ const countAliveNeighbours = function(list,position){
 }
 
 const extractValidPosition = function(alivePosition,topLeft,operator){
-  let operations = {"+" : addPositions,"-" : substractPositions};
+  let operations = {"+" : addPositions,"-" : subtractPositions};
   return alivePosition = alivePosition.map( dimensions => operations[operator](dimensions,topLeft));
 }
 

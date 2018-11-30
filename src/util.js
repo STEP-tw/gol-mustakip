@@ -16,7 +16,7 @@ const addPositions = function(position1,position2){
   return [position1[0]+position2[0],position1[1]+position2[1]];
 }
 
-const substractPositions = function(position1,position2){
+const subtractPositions = function(position1,position2){
   return [position1[0]-position2[0],position1[1]-position2[1]];
 }
 
@@ -38,7 +38,7 @@ const repeatSymbol = function(times,symbol){
 module.exports = {cartesianSquare,
   cartesianProduct,
   addPositions,
-  substractPositions,
+  subtractPositions,
   justifyLength,
   repeatSymbol,
   isNotOrigin };
