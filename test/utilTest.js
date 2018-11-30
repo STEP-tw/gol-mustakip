@@ -3,6 +3,7 @@ const { cartesianSquare,
   cartesianProduct,
   justifyLength,
   isNotOrigin, 
+  repeatSymbol,
   addPositions} = require("../src/util.js");
 
 
@@ -41,6 +42,14 @@ describe("justifyLength" , function(){
   it("should return justified text " , function(){
     deepEqual(justifyLength("1",3),"1  ");
     deepEqual(justifyLength("14",3),"14 ");
+  });
+});
+
+describe("repeatSymbol" , function(){
+  it("should repeat symbol for given number of times " , function(){
+    deepEqual(repeatSymbol(3,"*"),"***");
+    deepEqual(repeatSymbol(-2,"&"),"");
+    deepEqual(repeatSymbol(0," "),"");
   });
 });
 

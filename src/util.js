@@ -26,8 +26,13 @@ const isNotOrigin = function(position) {
 
 const justifyLength = function(text, width) {
   let spaceWidth = width - text.toString().length;
-  return text + new Array(spaceWidth).fill(' ').join('');
+  return text + repeatSymbol(spaceWidth," ");
 
+}
+
+const repeatSymbol = function(times,symbol){
+  times = Math.max(0,times);
+  return new Array(times).fill(symbol).join('');
 }
 
 module.exports = {cartesianSquare,
@@ -35,4 +40,5 @@ module.exports = {cartesianSquare,
   addPositions,
   substractPositions,
   justifyLength,
+  repeatSymbol,
   isNotOrigin };
