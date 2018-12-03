@@ -1,23 +1,17 @@
 const { cartesianSquare, 
   cartesianProduct,
   justifyLength,
+  range,
   subtractPositions,
   isNotOrigin, 
   addPositions} = require("./util.js");
 
 const findAliveposition = function({ world,dimensions}){
-  let count = 0;
   let alivePosition = [];
   let height = dimensions[0];
   let width = dimensions[1];
-  let set1 = new Array(height).fill(1).map(element => count++);
-  count = 0;
-  let set2 = new Array(width).fill(1).map(element => count++);
-  set1.forEach((row) => {
-    set2.forEach((column) => {
-      world[row][column] == 1 && alivePosition.push([row,column]);
-    });
-  });
+  cartesianProduct(range(height),range(width)).
+    map( position => {world[position[0]][position[1]] == 1 && alivePosition.push([position[0],position[1]])});
   return alivePosition;
 }
 

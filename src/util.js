@@ -16,6 +16,11 @@ const addPositions = function(position1,position2){
   return [position1[0]+position2[0],position1[1]+position2[1]];
 }
 
+const range = function(limit){
+  let count = 0;
+  return new Array(limit).fill("*").map(number => count++);
+}
+
 const subtractPositions = function(position1,position2){
   return [position1[0]-position2[0],position1[1]-position2[1]];
 }
@@ -41,4 +46,5 @@ module.exports = {cartesianSquare,
   subtractPositions,
   justifyLength,
   repeatSymbol,
+  range,
   isNotOrigin };
